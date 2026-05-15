@@ -110,6 +110,12 @@
       text-decoration: none;
     }
 
+    .brand-logo {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
     .nav-logo span {
       font-size: 15px;
       font-weight: 700;
@@ -492,20 +498,7 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">
-    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-      <rect width="32" height="32" rx="7" fill="#0a0a18"/>
-      <defs>
-        <linearGradient id="lg-nav" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#ff9800"/>
-          <stop offset="100%" stop-color="#ffb74d"/>
-        </linearGradient>
-      </defs>
-      <circle cx="16" cy="16" r="10.5" stroke="#2e2a72" stroke-width="3.5" fill="none"
-              stroke-dasharray="52.5 13.6" stroke-linecap="round" transform="rotate(25 16 16)"/>
-      <circle cx="16" cy="16" r="10.5" stroke="url(#lg-nav)" stroke-width="3.5" fill="none"
-              stroke-dasharray="34.1 32" stroke-linecap="round" transform="rotate(25 16 16)"/>
-      <circle cx="16" cy="16" r="2" fill="#dcd8f5"/>
-    </svg>
+    <img class="brand-logo" src="logo.svg" alt="" />
     <span>Codex <em>Quota</em> Monitor</span>
   </a>
   <div id="cqm-lang-switcher"></div>
@@ -676,20 +669,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="nav-logo">
-    <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-      <rect width="32" height="32" rx="7" fill="#0a0a18"/>
-      <defs>
-        <linearGradient id="lg-ft" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#ff9800"/>
-          <stop offset="100%" stop-color="#ffb74d"/>
-        </linearGradient>
-      </defs>
-      <circle cx="16" cy="16" r="10.5" stroke="#2e2a72" stroke-width="3.5" fill="none"
-              stroke-dasharray="52.5 13.6" stroke-linecap="round" transform="rotate(25 16 16)"/>
-      <circle cx="16" cy="16" r="10.5" stroke="url(#lg-ft)" stroke-width="3.5" fill="none"
-              stroke-dasharray="34.1 32" stroke-linecap="round" transform="rotate(25 16 16)"/>
-      <circle cx="16" cy="16" r="2" fill="#dcd8f5"/>
-    </svg>
+    <img class="brand-logo" src="logo.svg" alt="" style="width:24px;height:24px;" />
     <span style="font-size:14px; font-weight:600; color:#fff;">
       Codex <em style="font-style:normal; background:linear-gradient(90deg,#ff9800,#ffb74d); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Quota</em> Monitor
     </span>

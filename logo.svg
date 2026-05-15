@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1254"
+   height="1254"
+   viewBox="0 0 1254 1254"
+   fill="none"
+   style=""
+   version="1.1"
+   id="svg62"
+   sodipodi:docname="speedometer_v2.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview64"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.69457735"
+     inkscape:cx="626.28014"
+     inkscape:cy="627.71986"
+     inkscape:window-width="2560"
+     inkscape:window-height="1057"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg62" />
+  <defs
+     id="defs16">
+    <linearGradient
+       id="bg"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="1">
+      <stop
+         offset="0%"
+         stop-color="#03101f"
+         id="stop2" />
+      <stop
+         offset="100%"
+         stop-color="#020812"
+         id="stop4" />
+    </linearGradient>
+    <filter
+       id="softGlow"
+       x="-0.18857143"
+       y="-0.020705883"
+       width="1.3771429"
+       height="1.0414118">
+      <feGaussianBlur
+         stdDeviation="2.2"
+         result="blur"
+         id="feGaussianBlur7" />
+      <feMerge
+         id="feMerge13">
+        <feMergeNode
+           in="blur"
+           id="feMergeNode9" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode11" />
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Card background + border -->
+  <rect
+     x="28"
+     y="28"
+     width="1198"
+     height="1198"
+     rx="120"
+     fill="url(#bg)"
+     stroke="#ff9800"
+     stroke-width="28"
+     style="stroke:rgb(255, 152, 0);color:rgb(0, 0, 0);stroke-width:28px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"
+     id="rect18" />
+  <!-- Arc segments (original, unchanged) -->
+  <!--
+    Ticks igualmente espaçados.
+    O arco cobre de 210° a 330° (sistema matemático, onde 0°=direita, anti-horário).
+    Em SVG (0°=direita, horário): 210° SVG = parte inferior-esquerda.
+    
+    O arco original vai de ~-150° a ~-30° (em relação ao centro 627,675),
+    ou seja, de 210° a 330° no sistema SVG (horário, 0°=direita).
+    
+    8 ticks nos extremos + intermediários: ângulos de 210° a 330° em steps de 120/7 ≈ 17.14°
+    Raio do arco interno ≈ 297 (365-68), externo ≈ 365.
+    Ticks de r=330 até r=365 (35px comprimento), centro em 627,675.
+    
+    Ângulos (SVG, graus): 210, 227.14, 244.29, 261.43, 278.57, 295.71, 312.86, 330
+    Para cada ângulo a (graus):
+      x1 = 627 + 330*cos(a*π/180)
+      y1 = 675 + 330*sin(a*π/180)
+      x2 = 627 + 368*cos(a*π/180)
+      y2 = 675 + 368*sin(a*π/180)
+    
+    Calculados:
+    210°: cos=-0.866, sin=-0.5  → x1=627-285.8=341.2, y1=675-165=510   | x2=627-318.9=308.1, y2=675-184=491
+    227.14°: cos=-0.6819, sin=-0.7314 → x1=627-225=402, y1=675-241.4=433.6 | x2=627-251.3=375.7, y2=675-269.2=405.8
+    244.29°: cos=-0.4337, sin=-0.9010 → x1=627-143.1=483.9, y1=675-297.3=377.7 | x2=627-159.8=467.2, y2=675-331.6=343.4
+    261.43°: cos=-0.1495, sin=-0.9888 → x1=627-49.3=577.7, y1=675-326.3=348.7 | x2=627-55.1=571.9, y2=675-363.9=311.1
+    278.57°: cos=0.1495, sin=-0.9888  → x1=627+49.3=676.3, y1=675-326.3=348.7 | x2=627+55.1=682.1, y2=675-363.9=311.1
+    295.71°: cos=0.4337, sin=-0.9010  → x1=627+143.1=770.1, y1=675-297.3=377.7 | x2=627+159.8=786.8, y2=675-331.6=343.4
+    312.86°: cos=0.6819, sin=-0.7314  → x1=627+225=852, y1=675-241.4=433.6 | x2=627+251.3=878.3, y2=675-269.2=405.8
+    330°: cos=0.866, sin=-0.5         → x1=627+285.8=912.8, y1=675-165=510 | x2=627+318.9=945.9, y2=675-184=491
+  -->
+  <!--
+    Ponteiro: ponta fina aponta para o arco (zona laranja ~300°), base larga no centro.
+    Rotação 60° a partir de 210° = 270° (topo). Quero laranja: ~300° no SVG.
+    
+    Triângulo: base na origem (cx=627, cy=675), ponta em (0, -255) antes da rotação.
+    Base: dois pontos a ±12px do centro. Ponta: (0, -255) relativo ao centro.
+    Depois rotate(300-270=30... mas 300° SVG horário = 30° a direita do topo).
+    
+    No meu sistema: ângulo 300° SVG = rotate(300, 627, 675) aplicado a um ponto (627, 675-255)=(627,420).
+    
+    Base do triângulo em (627±14, 675), ponta em (627, 420) → rotate 30° horário em torno de (627,675):
+    Depois rotate(30, 627, 675):
+  -->
+  <!-- Centro -->
+  <!-- Símbolo </> -->
+  <g
+     id="g986"
+     transform="matrix(1.3926568,0,0,1.397325,-246.19571,-240.33473)"
+     style="stroke-width:0.716852">
+    <path
+       d="M 368.91,933.09 A 365,365 0 0 1 262.5,655.9"
+       stroke="#61df3a"
+       stroke-width="68"
+       stroke-linecap="butt"
+       fill="none"
+       style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#61df3a;stroke-width:48.7459px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="path20" />
+    <path
+       d="M 264,636.85 A 365,365 0 0 1 378.07,408.06"
+       stroke="#95e530"
+       stroke-width="68"
+       stroke-linecap="butt"
+       fill="none"
+       style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#95e530;stroke-width:48.7459px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="path22" />
+    <path
+       d="M 392.38,395.39 A 365,365 0 0 1 614.26,310.22"
+       stroke="#d4eb14"
+       stroke-width="68"
+       stroke-linecap="butt"
+       fill="none"
+       style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#d4eb14;stroke-width:48.7459px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="path24" />
+    <path
+       d="m 639.74,310.22 a 365,365 0 0 1 236.19,97.84"
+       stroke="#ffd200"
+       stroke-width="68"
+       stroke-linecap="butt"
+       fill="none"
+       style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#ffd200;stroke-width:48.7459px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="path26" />
+    <path
+       d="M 893.94,426.07 A 365,365 0 0 1 992,675"
+       stroke="#ff9700"
+       stroke-width="68"
+       stroke-linecap="butt"
+       fill="none"
+       style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#ff9700;stroke-width:48.7459px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="path28" />
+    <path
+       d="M 991.5,694.1 A 365,365 0 0 1 885.09,933.09"
+       stroke="#ff3a18"
+       stroke-width="68"
+       stroke-linecap="butt"
+       fill="none"
+       style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#ff3a18;stroke-width:48.7459px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="path30" />
+    <g
+       transform="matrix(1.0274965,0.6039713,-0.59322539,1.046109,384.2581,-410.60837)"
+       style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:none;stroke-width:0.598799px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="g50">
+      <polygon
+         points="613,675 641,675 627,420 "
+         fill="#f4f4f4"
+         filter="url(#softGlow)"
+         style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#f4f4f4;stroke:none;stroke-width:0.598799px;stroke-linecap:butt;stroke-linejoin:miter"
+         id="polygon48" />
+    </g>
+    <circle
+       cx="627"
+       cy="675"
+       r="48"
+       fill="#f4f4f4"
+       filter="url(#softGlow)"
+       style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#f4f4f4;stroke:none;stroke-width:0.716852px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="circle52" />
+    <circle
+       cx="627"
+       cy="675"
+       r="24"
+       fill="#021224"
+       style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:#021224;stroke:none;stroke-width:0.716852px;stroke-linecap:butt;stroke-linejoin:miter"
+       id="circle54" />
+    <g
+       id="g889"
+       transform="matrix(1.263468,0,0,1.2879439,372.72707,-490.91813)"
+       style="stroke-width:0.561951">
+      <line
+         x1="182.25"
+         y1="1120"
+         x2="220.25"
+         y2="1055"
+         stroke="#ff9800"
+         stroke-width="11"
+         stroke-linecap="round"
+         style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#ff9800;stroke-width:6.18146px;stroke-linecap:round;stroke-linejoin:miter"
+         id="line58" />
+      <g
+         id="g883"
+         style="stroke-width:0.561951">
+        <path
+           d="m 150,1060 -27.5,27.5 27.5,27.5"
+           stroke="#57dc44"
+           stroke-width="11"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           fill="none"
+           style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#57dc44;stroke-width:6.18146px;stroke-linecap:round;stroke-linejoin:round"
+           id="path56" />
+        <path
+           d="m 252,1060 28,27.5 -28,27.5"
+           stroke="#ff2a22"
+           stroke-width="11"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           fill="none"
+           style="color:#000000;font-weight:400;font-size:16px;font-family:'Anthropic Sans', '-apple-system', BlinkMacSystemFont, 'Segoe UI', sans-serif;dominant-baseline:auto;text-anchor:start;opacity:1;fill:none;stroke:#ff2a22;stroke-width:6.18146px;stroke-linecap:round;stroke-linejoin:round"
+           id="path60" />
+      </g>
+    </g>
+  </g>
+</svg>
