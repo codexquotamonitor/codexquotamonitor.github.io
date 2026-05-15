@@ -80,6 +80,18 @@
       margin-bottom: 48px;
     }
 
+    #cqm-lang-switcher {
+      position: absolute;
+      top: 64px;
+      right: 24px;
+      z-index: 10;
+    }
+
+    html[dir="rtl"] #cqm-lang-switcher {
+      right: auto;
+      left: 24px;
+    }
+
     .logo-wrap {
       width: 56px; height: 56px;
       display: flex; align-items: center; justify-content: center;
@@ -200,7 +212,7 @@
 
     <!-- Header -->
     <div class="header">
-      <div id="cqm-lang-switcher" style="position:absolute;top:64px;right:24px;z-index:10"></div>
+      <div id="cqm-lang-switcher"></div>
       <div class="logo-wrap">
         <img class="brand-logo" src="logo.svg" alt="" />
       </div>
