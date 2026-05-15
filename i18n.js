@@ -59,7 +59,7 @@ const CQM_T = {
     pp_s2_title: 'What data is accessed',
     pp_s2_p: 'The extension reads quota data from ChatGPT’s own usage endpoint using your existing authenticated browser session:',
     pp_s2_items_html: '<li>Your current Codex usage limits</li><li>Session quota usage percentage and reset time (5-hour window)</li><li>Weekly quota usage percentage and reset time (7-day window)</li><li>Any extra Codex credits available beyond your plan limits</li><li>Your account plan type (for example, Plus)</li>',
-    pp_s2_note_html: 'This data is stored locally on your device using the browser\'s built-in <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#a78bfa">chrome.storage.local</code> API and is never sent anywhere else.',
+    pp_s2_note_html: 'This data is stored locally on your device using the browser\'s built-in <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ffb74d">chrome.storage.local</code> API and is never sent anywhere else.',
     pp_s3_title: 'What we do not do',
     pp_s3_items_html: '<li>We do not collect any personally identifiable information</li><li>We do not transmit any data to external servers</li><li>We do not use analytics, tracking pixels, or telemetry</li><li>We do not share data with third parties</li><li>We do not read your conversations or any Codex content</li><li>We do not store data beyond what is necessary to display your quota</li>',
     pp_s4_title: 'Permissions explained',
@@ -121,7 +121,7 @@ const CQM_T = {
     pp_s2_title: 'Quais dados são acessados',
     pp_s2_p: 'The extension reads quota data from ChatGPT’s own usage endpoint using your existing authenticated browser session:',
     pp_s2_items_html: '<li>Your current Codex usage limits</li><li>Session quota usage percentage and reset time (5-hour window)</li><li>Weekly quota usage percentage and reset time (7-day window)</li><li>Any extra Codex credits available beyond your plan limits</li><li>Your account plan type (for example, Plus)</li>',
-    pp_s2_note_html: 'Esses dados são armazenados localmente no seu dispositivo usando a API nativa <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#a78bfa">chrome.storage.local</code> e nunca são enviados para nenhum outro lugar.',
+    pp_s2_note_html: 'Esses dados são armazenados localmente no seu dispositivo usando a API nativa <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ffb74d">chrome.storage.local</code> e nunca são enviados para nenhum outro lugar.',
     pp_s3_title: 'O que não fazemos',
     pp_s3_items_html: '<li>Não coletamos nenhuma informação pessoal identificável</li><li>Não transmitimos dados para servidores externos</li><li>Não usamos analytics, pixels de rastreamento ou telemetria</li><li>Não compartilhamos dados com terceiros</li><li>Não lemos suas conversas nem qualquer conteúdo do Codex</li><li>Não armazenamos dados além do necessário para exibir sua cota</li>',
     pp_s4_title: 'Permissões explicadas',
@@ -183,7 +183,7 @@ const CQM_T = {
     pp_s2_title: 'Qué datos se acceden',
     pp_s2_p: 'The extension reads quota data from ChatGPT’s own usage endpoint using your existing authenticated browser session:',
     pp_s2_items_html: '<li>Your current Codex usage limits</li><li>Session quota usage percentage and reset time (5-hour window)</li><li>Weekly quota usage percentage and reset time (7-day window)</li><li>Any extra Codex credits available beyond your plan limits</li><li>Your account plan type (for example, Plus)</li>',
-    pp_s2_note_html: 'Estos datos se almacenan localmente en tu dispositivo usando la API integrada del navegador <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#a78bfa">chrome.storage.local</code> y nunca se envían a ningún otro lugar.',
+    pp_s2_note_html: 'Estos datos se almacenan localmente en tu dispositivo usando la API integrada del navegador <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ffb74d">chrome.storage.local</code> y nunca se envían a ningún otro lugar.',
     pp_s3_title: 'Lo que no hacemos',
     pp_s3_items_html: '<li>No recopilamos información de identificación personal</li><li>No transmitimos datos a servidores externos</li><li>No usamos analíticas, píxeles de seguimiento ni telemetría</li><li>No compartimos datos con terceros</li><li>No leemos tus conversaciones ni ningún contenido de Codex</li><li>No almacenamos datos más allá de lo necesario para mostrar tu cuota</li>',
     pp_s4_title: 'Permisos explicados',
@@ -244,7 +244,7 @@ const CQM_T = {
     pp_s2_title: 'Quelles données sont accédées',
     pp_s2_p: 'The extension reads quota data from ChatGPT’s own usage endpoint using your existing authenticated browser session:',
     pp_s2_items_html: '<li>Your current Codex usage limits</li><li>Session quota usage percentage and reset time (5-hour window)</li><li>Weekly quota usage percentage and reset time (7-day window)</li><li>Any extra Codex credits available beyond your plan limits</li><li>Your account plan type (for example, Plus)</li>',
-    pp_s2_note_html: 'Ces données sont stockées localement sur votre appareil via l\'API intégrée du navigateur <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#a78bfa">chrome.storage.local</code> et ne sont jamais envoyées ailleurs.',
+    pp_s2_note_html: 'Ces données sont stockées localement sur votre appareil via l\'API intégrée du navigateur <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ffb74d">chrome.storage.local</code> et ne sont jamais envoyées ailleurs.',
     pp_s3_title: 'Ce que nous ne faisons pas',
     pp_s3_items_html: '<li>Nous ne collectons aucune information personnelle identifiable</li><li>Nous ne transmettons aucune donnée à des serveurs externes</li><li>Nous n\'utilisons pas d\'analyses, de pixels de suivi ou de télémétrie</li><li>Nous ne partageons pas de données avec des tiers</li><li>Nous ne lisons pas vos conversations ni aucun contenu Codex</li><li>Nous ne stockons pas de données au-delà de ce qui est nécessaire pour afficher votre quota</li>',
     pp_s4_title: 'Permissions expliquées',
@@ -306,7 +306,7 @@ const CQM_T = {
     pp_s2_title: 'ما البيانات التي يتم الوصول إليها',
     pp_s2_p: 'The extension reads quota data from ChatGPT’s own usage endpoint using your existing authenticated browser session:',
     pp_s2_items_html: '<li>Your current Codex usage limits</li><li>Session quota usage percentage and reset time (5-hour window)</li><li>Weekly quota usage percentage and reset time (7-day window)</li><li>Any extra Codex credits available beyond your plan limits</li><li>Your account plan type (for example, Plus)</li>',
-    pp_s2_note_html: 'تُخزَّن هذه البيانات محلياً على جهازك باستخدام API المتصفح المدمجة <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#a78bfa">chrome.storage.local</code> ولا تُرسَل إلى أي مكان آخر.',
+    pp_s2_note_html: 'تُخزَّن هذه البيانات محلياً على جهازك باستخدام API المتصفح المدمجة <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ffb74d">chrome.storage.local</code> ولا تُرسَل إلى أي مكان آخر.',
     pp_s3_title: 'ما لا نفعله',
     pp_s3_items_html: '<li>لا نجمع أي معلومات تعريفية شخصية</li><li>لا ننقل أي بيانات إلى خوادم خارجية</li><li>لا نستخدم أدوات تحليل أو بكسلات تتبع أو قياس عن بعد</li><li>لا نشارك البيانات مع أطراف ثالثة</li><li>لا نقرأ محادثاتك أو أي محتوى في Codex</li><li>لا نخزن بيانات تتجاوز ما هو ضروري لعرض حصتك</li>',
     pp_s4_title: 'شرح الأذونات',
@@ -368,7 +368,7 @@ const CQM_T = {
     pp_s2_title: 'কোন ডেটা অ্যাক্সেস করা হয়',
     pp_s2_p: 'The extension reads quota data from ChatGPT’s own usage endpoint using your existing authenticated browser session:',
     pp_s2_items_html: '<li>Your current Codex usage limits</li><li>Session quota usage percentage and reset time (5-hour window)</li><li>Weekly quota usage percentage and reset time (7-day window)</li><li>Any extra Codex credits available beyond your plan limits</li><li>Your account plan type (for example, Plus)</li>',
-    pp_s2_note_html: 'এই ডেটা ব্রাউজারের অন্তর্নির্মিত <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#a78bfa">chrome.storage.local</code> API ব্যবহার করে স্থানীয়ভাবে সংরক্ষিত হয় এবং অন্য কোথাও পাঠানো হয় না।',
+    pp_s2_note_html: 'এই ডেটা ব্রাউজারের অন্তর্নির্মিত <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ffb74d">chrome.storage.local</code> API ব্যবহার করে স্থানীয়ভাবে সংরক্ষিত হয় এবং অন্য কোথাও পাঠানো হয় না।',
     pp_s3_title: 'আমরা যা করি না',
     pp_s3_items_html: '<li>কোনো ব্যক্তিগত পরিচয়যোগ্য তথ্য সংগ্রহ করি না</li><li>বাহ্যিক সার্ভারে ডেটা প্রেরণ করি না</li><li>অ্যানালিটিক্স, ট্র্যাকিং পিক্সেল বা টেলিমেট্রি ব্যবহার করি না</li><li>তৃতীয় পক্ষের সাথে ডেটা ভাগ করি না</li><li>আপনার কথোপকথন বা Codex কন্টেন্ট পড়ি না</li><li>কোটা প্রদর্শনের জন্য প্রয়োজনীয়তার বাইরে ডেটা সংরক্ষণ করি না</li>',
     pp_s4_title: 'অনুমতি ব্যাখ্যা',
@@ -430,7 +430,7 @@ const CQM_T = {
     pp_s2_title: 'कौन सा डेटा एक्सेस किया जाता है',
     pp_s2_p: 'The extension reads quota data from ChatGPT’s own usage endpoint using your existing authenticated browser session:',
     pp_s2_items_html: '<li>Your current Codex usage limits</li><li>Session quota usage percentage and reset time (5-hour window)</li><li>Weekly quota usage percentage and reset time (7-day window)</li><li>Any extra Codex credits available beyond your plan limits</li><li>Your account plan type (for example, Plus)</li>',
-    pp_s2_note_html: 'यह डेटा ब्राउज़र की अंतर्निहित <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#a78bfa">chrome.storage.local</code> API का उपयोग करके स्थानीय रूप से संग्रहीत होता है और कहीं और नहीं भेजा जाता।',
+    pp_s2_note_html: 'यह डेटा ब्राउज़र की अंतर्निहित <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ffb74d">chrome.storage.local</code> API का उपयोग करके स्थानीय रूप से संग्रहीत होता है और कहीं और नहीं भेजा जाता।',
     pp_s3_title: 'हम क्या नहीं करते',
     pp_s3_items_html: '<li>कोई व्यक्तिगत पहचान योग्य जानकारी एकत्र नहीं करते</li><li>बाहरी सर्वर पर डेटा प्रसारित नहीं करते</li><li>एनालिटिक्स, ट्रैकिंग पिक्सल या टेलीमेट्री का उपयोग नहीं करते</li><li>तृतीय पक्षों के साथ डेटा साझा नहीं करते</li><li>आपकी बातचीत या कोई Codex सामग्री नहीं पढ़ते</li><li>कोटा प्रदर्शित करने के लिए आवश्यकता से अधिक डेटा संग्रहीत नहीं करते</li>',
     pp_s4_title: 'अनुमतियाँ समझाई गई',
@@ -492,7 +492,7 @@ const CQM_T = {
     pp_s2_title: 'Data apa yang diakses',
     pp_s2_p: 'The extension reads quota data from ChatGPT’s own usage endpoint using your existing authenticated browser session:',
     pp_s2_items_html: '<li>Your current Codex usage limits</li><li>Session quota usage percentage and reset time (5-hour window)</li><li>Weekly quota usage percentage and reset time (7-day window)</li><li>Any extra Codex credits available beyond your plan limits</li><li>Your account plan type (for example, Plus)</li>',
-    pp_s2_note_html: 'Data ini disimpan secara lokal di perangkat Anda menggunakan API bawaan browser <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#a78bfa">chrome.storage.local</code> dan tidak pernah dikirim ke tempat lain.',
+    pp_s2_note_html: 'Data ini disimpan secara lokal di perangkat Anda menggunakan API bawaan browser <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ffb74d">chrome.storage.local</code> dan tidak pernah dikirim ke tempat lain.',
     pp_s3_title: 'Yang tidak kami lakukan',
     pp_s3_items_html: '<li>Tidak mengumpulkan informasi identitas pribadi</li><li>Tidak mengirimkan data ke server eksternal</li><li>Tidak menggunakan analitik, piksel pelacakan, atau telemetri</li><li>Tidak berbagi data dengan pihak ketiga</li><li>Tidak membaca percakapan atau konten Codex Anda</li><li>Tidak menyimpan data melebihi yang diperlukan untuk menampilkan kuota</li>',
     pp_s4_title: 'Izin dijelaskan',
@@ -554,7 +554,7 @@ const CQM_T = {
     pp_s2_title: 'К каким данным осуществляется доступ',
     pp_s2_p: 'The extension reads quota data from ChatGPT’s own usage endpoint using your existing authenticated browser session:',
     pp_s2_items_html: '<li>Your current Codex usage limits</li><li>Session quota usage percentage and reset time (5-hour window)</li><li>Weekly quota usage percentage and reset time (7-day window)</li><li>Any extra Codex credits available beyond your plan limits</li><li>Your account plan type (for example, Plus)</li>',
-    pp_s2_note_html: 'Данные хранятся локально на вашем устройстве с помощью встроенного API браузера <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#a78bfa">chrome.storage.local</code> и никуда не отправляются.',
+    pp_s2_note_html: 'Данные хранятся локально на вашем устройстве с помощью встроенного API браузера <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ffb74d">chrome.storage.local</code> и никуда не отправляются.',
     pp_s3_title: 'Что мы не делаем',
     pp_s3_items_html: '<li>Не собираем персональные данные</li><li>Не передаём данные на внешние серверы</li><li>Не используем аналитику, пиксели отслеживания или телеметрию</li><li>Не передаём данные третьим лицам</li><li>Не читаем ваши переписки или контент Codex</li><li>Не храним данные сверх необходимого для отображения квоты</li>',
     pp_s4_title: 'Объяснение разрешений',
@@ -616,7 +616,7 @@ const CQM_T = {
     pp_s2_title: '访问哪些数据',
     pp_s2_p: 'The extension reads quota data from ChatGPT’s own usage endpoint using your existing authenticated browser session:',
     pp_s2_items_html: '<li>Your current Codex usage limits</li><li>Session quota usage percentage and reset time (5-hour window)</li><li>Weekly quota usage percentage and reset time (7-day window)</li><li>Any extra Codex credits available beyond your plan limits</li><li>Your account plan type (for example, Plus)</li>',
-    pp_s2_note_html: '这些数据使用浏览器内置的 <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#a78bfa">chrome.storage.local</code> API 存储在本地设备上，从不发送到其他地方。',
+    pp_s2_note_html: '这些数据使用浏览器内置的 <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ffb74d">chrome.storage.local</code> API 存储在本地设备上，从不发送到其他地方。',
     pp_s3_title: '我们不做的事',
     pp_s3_items_html: '<li>不收集任何个人身份信息</li><li>不向外部服务器传输任何数据</li><li>不使用分析工具、跟踪像素或遥测</li><li>不与第三方共享数据</li><li>不读取您的对话或任何 Codex 内容</li><li>不存储超出显示配额所需的数据</li>',
     pp_s4_title: '权限说明',
@@ -690,15 +690,15 @@ function cqmBuildSwitcher(containerId) {
       .cqm-switcher { position: relative; display: inline-flex; }
       #cqm-lang-btn {
         display: inline-flex; align-items: center; gap: 6px;
-        background: rgba(167,139,250,.08); border: 1px solid rgba(167,139,250,.2);
-        border-radius: 8px; padding: 6px 12px; cursor: pointer; color: #a78bfa;
+        background: rgba(230,126,0,.08); border: 1px solid rgba(230,126,0,.2);
+        border-radius: 8px; padding: 6px 12px; cursor: pointer; color: #ffb74d;
         font-size: 13px; font-weight: 500; font-family: inherit;
         transition: background .2s;
       }
-      #cqm-lang-btn:hover { background: rgba(167,139,250,.15); }
+      #cqm-lang-btn:hover { background: rgba(230,126,0,.15); }
       #cqm-lang-dd {
         display: none; position: absolute; top: calc(100% + 6px); right: 0;
-        background: #0f0f1a; border: 1px solid rgba(167,139,250,.2);
+        background: #0f0f1a; border: 1px solid rgba(230,126,0,.2);
         border-radius: 10px; overflow: hidden; z-index: 200;
         box-shadow: 0 8px 24px rgba(0,0,0,.5); min-width: 180px;
       }
@@ -708,8 +708,8 @@ function cqmBuildSwitcher(containerId) {
         background: none; border: none; color: #9090b0; font-size: 13px;
         cursor: pointer; font-family: inherit; transition: background .15s, color .15s;
       }
-      .cqm-lang-option:hover { background: rgba(167,139,250,.1); color: #fff; }
-      .cqm-lang-option.active { color: #a78bfa; font-weight: 600; }
+      .cqm-lang-option:hover { background: rgba(230,126,0,.1); color: #fff; }
+      .cqm-lang-option.active { color: #ffb74d; font-weight: 600; }
     `;
     document.head.appendChild(style);
   }
