@@ -63,6 +63,8 @@
       --border: rgba(255,152,0,.16);
       --purple: #ff9800;
       --purple2: #ffb74d;
+      --cta: #e67e00;
+      --cta-hover: #cc6d00;
       --text: #e8e8f0;
       --muted: #6b6b8a;
       --radius: 12px;
@@ -130,7 +132,7 @@
     }
 
     .btn-install-sm {
-      background: linear-gradient(135deg, var(--purple), var(--purple2));
+      background: var(--cta);
       color: #fff;
       font-size: 13px;
       font-weight: 600;
@@ -139,7 +141,7 @@
       text-decoration: none;
       transition: opacity .2s;
     }
-    .btn-install-sm:hover { opacity: .85; }
+    .btn-install-sm:hover { background: var(--cta-hover); }
 
     /* ── SECTIONS ── */
     section { position: relative; z-index: 1; }
@@ -246,7 +248,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, var(--purple), var(--purple2));
+      background: var(--cta);
       color: #fff;
       font-size: 15px;
       font-weight: 600;
@@ -255,7 +257,7 @@
       text-decoration: none;
       transition: opacity .2s, transform .2s;
     }
-    .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--cta-hover); transform: translateY(-1px); }
 
     .btn-secondary {
       display: inline-flex;
@@ -271,7 +273,7 @@
       text-decoration: none;
       transition: background .2s, transform .2s;
     }
-    .btn-secondary:hover { background: rgba(167,139,250,.06); transform: translateY(-1px); }
+    .btn-secondary:hover { background: rgba(255,152,0,.10); transform: translateY(-1px); }
 
     .hero-pills {
       display: flex;

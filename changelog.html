@@ -29,6 +29,8 @@
       --border:    rgba(255,152,0,.16);
       --purple:    #ff9800;
       --purple2:   #ffb74d;
+      --cta:       #e67e00;
+      --cta-hover: #cc6d00;
       --text:      #e8e8f0;
       --muted:     #6b6b8a;
       --radius:    12px;
@@ -105,7 +107,7 @@
     }
 
     .btn-install-sm {
-      background: linear-gradient(135deg, var(--purple), var(--purple2));
+      background: var(--cta);
       color: #fff;
       font-size: 13px;
       font-weight: 600;
@@ -115,7 +117,7 @@
       transition: opacity .2s;
       white-space: nowrap;
     }
-    .btn-install-sm:hover { opacity: .85; }
+    .btn-install-sm:hover { background: var(--cta-hover); }
 
     /* ── PAGE ── */
     .page {
