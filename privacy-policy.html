@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Codex Quota Monitor</title>
+  <meta name="description" content="Privacy policy for Codex Quota Monitor, a free Chrome extension that tracks your Codex quota usage. No data collection, no tracking, no external servers." />
+  <link rel="canonical" href="https://codexquotamonitor.github.io/privacy-policy.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://codexquotamonitor.github.io/privacy-policy.html" />
+  <meta property="og:title" content="Privacy Policy — Codex Quota Monitor" />
+  <meta property="og:description" content="Codex Quota Monitor does not collect, transmit, or store any personal data. Everything stays on your device." />
+  <meta property="og:site_name" content="Codex Quota Monitor" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:    #ff9800;
+      --purple-hi: #ffb74d;
+      --bg:        #07070f;
+      --surface:   #0f0f0f;
+      --border:    #1e1e1e;
+      --text:      #e8e8f0;
+      --muted:     #6b6b8a;
+    }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      line-height: 1.7;
+    }
+
+    /* dot grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, #1e1b4b 1px, transparent 1px);
+      background-size: 36px 36px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* glows */
+    .glow {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-tl {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(167,139,250,.12) 0%, transparent 65%);
+      top: -250px; left: -200px;
+    }
+    .glow-br {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(192,88,246,.08) 0%, transparent 65%);
+      bottom: -200px; right: -100px;
+    }
+
+    /* layout */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+
+    /* header */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .logo-wrap {
+      width: 56px; height: 56px;
+      background: #0a0a18;
+      border-radius: 14px;
+      border: 1px solid #2a2060;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 32px rgba(167,139,250,.25);
+      flex-shrink: 0;
+    }
+
+    .header-text h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+
+    .header-text h1 span {
+      background: linear-gradient(90deg, var(--purple), var(--purple-hi));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-text p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* sections */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .section:hover { border-color: rgba(167,139,250,.2); }
+
+    .section h2 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--purple);
+      margin-bottom: 12px;
+    }
+
+    .section p {
+      font-size: 14px;
+      color: #b0b0c0;
+      margin-bottom: 10px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .section ul li {
+      font-size: 14px;
+      color: #b0b0c0;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .section ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--purple);
+      font-weight: 700;
+    }
+
+    /* highlight box */
+    .highlight {
+      background: rgba(167,139,250,.06);
+      border: 1px solid rgba(167,139,250,.18);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #c4b5fd;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 12px;
+      color: #333;
+    }
+
+    .footer a {
+      color: var(--purple);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    a { color: var(--purple); }
+  </style>
+</head>
+<body>
+
+  <div class="glow glow-tl"></div>
+  <div class="glow glow-br"></div>
+
+  <main class="page">
+
+    <!-- Header -->
+    <div class="header">
+      <div id="cqm-lang-switcher" style="position:absolute;top:64px;right:24px;z-index:10"></div>
+      <div class="logo-wrap">
+        <svg width="34" height="34" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="7" fill="#0a0a18"/>
+          <defs>
+            <linearGradient id="lg" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#ff9800"/>
+              <stop offset="100%" stop-color="#ffb74d"/>
+            </linearGradient>
+          </defs>
+          <circle cx="16" cy="16" r="10.5" stroke="#2e2a72" stroke-width="3.5" fill="none"
+                  stroke-dasharray="52.5 13.6" stroke-linecap="round" transform="rotate(25 16 16)"/>
+          <circle cx="16" cy="16" r="10.5" stroke="url(#lg)" stroke-width="3.5" fill="none"
+                  stroke-dasharray="34.1 32" stroke-linecap="round" transform="rotate(25 16 16)"/>
+          <circle cx="16" cy="16" r="2" fill="#dcd8f5"/>
+        </svg>
+      </div>
+      <div class="header-text">
+        <h1>Codex <span>Quota</span> Monitor</h1>
+        <p data-i18n="pp_subtitle">Privacy Policy &mdash; Last updated: April 19, 2026</p>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="section">
+      <h2 data-i18n="pp_s1_title">Overview</h2>
+      <p data-i18n="pp_s1_p">Codex Quota Monitor is a browser extension that displays your Codex usage quota directly in the browser toolbar.</p>
+      <div class="highlight" data-i18n="pp_s1_h1">
+        🔒 We do not collect, transmit, or store any personal data on external servers. Everything stays on your device.
+      </div>
+      <div class="highlight" style="margin-top:10px" data-i18n-html="pp_s1_h2_html">
+        🔓 This extension is <strong>open source</strong>. You can inspect every line of code at <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple)">github.com/codexquotamonitor/codex-quota-monitor</a> and verify our privacy practices yourself.
+      </div>
+    </div>
+
+    <!-- Data collected -->
+    <div class="section">
+      <h2 data-i18n="pp_s2_title">What data is accessed</h2>
+      <p data-i18n="pp_s2_p">The extension reads the following data exclusively from ChatGPT's own usage endpoint, using your existing authenticated browser session:</p>
+      <ul data-i18n-html="pp_s2_items_html">
+        <li>Your current Codex usage limits</li>
+        <li>Session quota usage percentage and reset time (5-hour window)</li>
+        <li>Weekly quota usage percentage and reset time (7-day window)</li>
+        <li>Any extra Codex credits available beyond your plan limits</li>
+        <li>Your account plan type (e.g. Pro)</li>
+      </ul>
+      <p style="margin-top:12px" data-i18n-html="pp_s2_note_html">This data is stored locally on your device using the browser's built-in <code style="font-size:12px;background:#1a1a2e;padding:1px 6px;border-radius:4px;color:#ff9800">chrome.storage.local</code> API and is never sent anywhere else.</p>
+    </div>
+
+    <!-- What we don't do -->
+    <div class="section">
+      <h2 data-i18n="pp_s3_title">What we do not do</h2>
+      <ul data-i18n-html="pp_s3_items_html">
+        <li>We do not collect any personally identifiable information</li>
+        <li>We do not transmit any data to external servers</li>
+        <li>We do not use analytics, tracking pixels, or telemetry</li>
+        <li>We do not share data with third parties</li>
+        <li>We do not read your conversations or any Codex content</li>
+        <li>We do not store data beyond what is necessary to display your quota</li>
+      </ul>
+    </div>
+
+    <!-- Permissions -->
+    <div class="section">
+      <h2 data-i18n="pp_s4_title">Permissions explained</h2>
+      <ul data-i18n-html="pp_s4_items_html">
+        <li><strong style="color:#e8e8f0">storage</strong> — saves quota data locally on your device</li>
+        <li><strong style="color:#e8e8f0">tabs</strong> — opens chatgpt.com when you click the "View quota" button</li>
+        <li><strong style="color:#e8e8f0">alarms</strong> — schedules background refresh every 10 minutes</li>
+        <li><strong style="color:#e8e8f0">host permission (chatgpt.com)</strong> — reads the usage API using your existing session cookies</li>
+      </ul>
+    </div>
+
+    <!-- Third parties -->
+    <div class="section">
+      <h2 data-i18n="pp_s5_title">Third-party services</h2>
+      <p data-i18n="pp_s5_p1">The extension does not integrate with any third-party services, SDKs, or APIs other than ChatGPT's own usage endpoint, which you are already authenticated with.</p>
+    </div>
+
+    <!-- Children -->
+    <div class="section">
+      <h2 data-i18n="pp_s6_title">Children's privacy</h2>
+      <p data-i18n="pp_s6_p">This extension is not directed at children under the age of 13. We do not knowingly collect any information from children.</p>
+    </div>
+
+    <!-- Changes -->
+    <div class="section">
+      <h2 data-i18n="pp_s7_title">Changes to this policy</h2>
+      <p data-i18n="pp_s7_p">If we make material changes to this privacy policy, we will update the "Last updated" date at the top of this page. We encourage you to review this page periodically.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="section">
+      <h2 data-i18n="pp_s8_title">Contact</h2>
+      <p data-i18n="pp_s8_p">If you have any questions about this privacy policy, please contact us at:</p>
+      <p><a href="mailto:codexquotamonitor@gmail.com">codexquotamonitor@gmail.com</a></p>
+      <p style="margin-top:8px" data-i18n-html="pp_s8_store_html">Project page: <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+
+    <p class="footer">
+      <span data-i18n-html="pp_footer_html">&copy; 2026 The Codex Quota Monitor team</span>
+      &nbsp;&middot;&nbsp;
+      <a href="changelog.html" data-i18n="footer_changelog">Changelog</a>
+    </p>
+
+  </main>
+
+<script src="i18n.js"></script>
+</body>
+</html>

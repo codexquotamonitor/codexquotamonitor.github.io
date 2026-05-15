@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Codex Quota Monitor — Free Chrome Extension to Track Codex Usage</title>
+  <meta name="description" content="Free, open source Chrome extension that shows your Codex session and weekly quota usage directly in the browser toolbar. No setup required. Works with Chrome, Brave, Edge and Arc. Available in 10 languages." />
+  <meta name="keywords" content="Codex quota, Codex usage, Codex extension, Codex usage limit, Codex plan quota, OpenAI Codex, browser extension, Chrome extension, quota tracker, Codex usage monitor" />
+  <link rel="canonical" href="https://codexquotamonitor.github.io/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Codex Quota Monitor" />
+
+  <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://codexquotamonitor.github.io/" />
+  <meta property="og:title" content="Codex Quota Monitor — Free Chrome Extension to Track Codex Usage" />
+  <meta property="og:description" content="Free, open source Chrome extension that shows your Codex session and weekly quota directly in the browser toolbar. No setup required." />
+  <meta property="og:site_name" content="Codex Quota Monitor" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Codex Quota Monitor — Free Chrome Extension to Track Codex Usage" />
+  <meta name="twitter:description" content="Free, open source Chrome extension that shows your Codex session and weekly quota directly in the browser toolbar. No setup required." />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Codex Quota Monitor",
+    "description": "Free, open source Chrome extension that shows your Codex session and weekly quota usage directly in the browser toolbar. No setup required.",
+    "url": "https://codexquotamonitor.github.io/",
+    "applicationCategory": "BrowserApplication",
+    "operatingSystem": "Chrome, Brave, Edge, Arc",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "softwareVersion": "0.1.0",
+    "license": "https://github.com/codexquotamonitor/codex-quota-monitor/blob/main/LICENSE",
+    "sameAs": [
+      "https://github.com/codexquotamonitor/codex-quota-monitor"
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #07070f;
+      --surface: #0f0f1a;
+      --border: rgba(255,152,0,.16);
+      --purple: #ff9800;
+      --purple2: #ffb74d;
+      --text: #e8e8f0;
+      --muted: #6b6b8a;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, #2b2113 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(7,7,15,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .nav-logo span em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--purple), var(--purple2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn-install-sm {
+      background: linear-gradient(135deg, var(--purple), var(--purple2));
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-install-sm:hover { opacity: .85; }
+
+    /* ── SECTIONS ── */
+    section { position: relative; z-index: 1; }
+
+    /* ── HERO ── */
+    .hero-wrap { position: relative; overflow: hidden; }
+
+    .hero-glow {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-glow-tl {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(167,139,250,.10) 0%, transparent 65%);
+      top: -200px; left: -200px;
+    }
+    .hero-glow-br {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(192,88,246,.08) 0%, transparent 65%);
+      bottom: -200px; right: -200px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 24px 40px;
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(167,139,250,.08);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: var(--purple);
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #fff;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--purple), var(--purple2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 22px;
+    }
+
+    .version-callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #f4f0ff;
+      background: rgba(167,139,250,.11);
+      border: 1px solid rgba(167,139,250,.28);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-bottom: 30px;
+      transition: background .2s, border-color .2s, transform .2s;
+    }
+
+    .version-callout:hover {
+      background: rgba(167,139,250,.16);
+      border-color: rgba(167,139,250,.46);
+      transform: translateY(-1px);
+    }
+
+    .version-callout-arrow {
+      color: var(--purple);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--purple), var(--purple2));
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity .2s, transform .2s;
+    }
+    .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--purple);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .btn-secondary:hover { background: rgba(167,139,250,.06); transform: translateY(-1px); }
+
+    .hero-pills {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      font-size: 12px;
+      color: var(--purple);
+      background: rgba(167,139,250,.08);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .hero-badges a {
+      display: inline-flex;
+      align-items: center;
+      opacity: .85;
+      transition: opacity .2s;
+    }
+    .hero-badges a:hover { opacity: 1; }
+    .hero-badges img { height: 20px; display: block; }
+
+    /* ── FEATURES ── */
+    .features {
+      padding: 48px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -.5px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 56px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color .2s;
+    }
+    .feature-card:hover { border-color: rgba(167,139,250,.35); }
+
+    .feature-icon {
+      width: 40px; height: 40px;
+      background: rgba(167,139,250,.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+      color: var(--purple);
+    }
+
+    .feature-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--purple); }
+
+    .footer-copy { font-size: 12px; color: #3a3a4a; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .hero { padding: 70px 20px 28px; }
+      .features { padding: 40px 20px; }
+      footer { padding: 32px 20px; }
+      .carousel-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+      <rect width="32" height="32" rx="7" fill="#0a0a18"/>
+      <defs>
+        <linearGradient id="lg-nav" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ff9800"/>
+          <stop offset="100%" stop-color="#ffb74d"/>
+        </linearGradient>
+      </defs>
+      <circle cx="16" cy="16" r="10.5" stroke="#2e2a72" stroke-width="3.5" fill="none"
+              stroke-dasharray="52.5 13.6" stroke-linecap="round" transform="rotate(25 16 16)"/>
+      <circle cx="16" cy="16" r="10.5" stroke="url(#lg-nav)" stroke-width="3.5" fill="none"
+              stroke-dasharray="34.1 32" stroke-linecap="round" transform="rotate(25 16 16)"/>
+      <circle cx="16" cy="16" r="2" fill="#dcd8f5"/>
+    </svg>
+    <span>Codex <em>Quota</em> Monitor</span>
+  </a>
+  <div id="cqm-lang-switcher"></div>
+  <a class="btn-install-sm"
+     href="https://github.com/codexquotamonitor/codex-quota-monitor"
+     target="_blank" data-i18n="nav_install">View on GitHub →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="hero-glow hero-glow-tl"></div>
+  <div class="hero-glow hero-glow-br"></div>
+  <section class="hero">
+    <div class="hero-badge">
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 1l1.8 3.6L14 5.3l-3 2.9.7 4.1L8 10.4l-3.7 1.9.7-4.1-3-2.9 4.2-.7z"/>
+      </svg>
+      <span data-i18n="hero_badge">Free Chrome Extension</span>
+    </div>
+    <h1 data-i18n-html="hero_title_html">Know your <em>Codex quota</em><br/>before it runs out</h1>
+    <p data-i18n-html="hero_desc_html">Track your Codex session and weekly usage directly in the browser toolbar — no setup, no distractions. Free and <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">open source</a>.</p>
+    <a class="version-callout"
+       href="changelog.html">
+      <span data-i18n="version_notice">Version history</span>
+      <span class="version-callout-arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    <div class="hero-ctas">
+      <a class="btn-primary"
+         href="https://github.com/codexquotamonitor/codex-quota-monitor"
+         target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span data-i18n="cta_install">View on GitHub</span>
+      </a>
+      <a class="btn-secondary" href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+        </svg>
+        <span data-i18n="cta_source">View source</span>
+      </a>
+    </div>
+    <div class="hero-pills">
+      <span class="pill" data-i18n="pill_session">Session usage</span>
+      <span class="pill" data-i18n="pill_weekly">Weekly usage</span>
+      <span class="pill" data-i18n="pill_design">Codex credits</span>
+      <span class="pill" data-i18n="pill_refresh">Auto refresh</span>
+      <span class="pill" data-i18n="pill_langs">10 languages</span>
+      <span class="pill" data-i18n="pill_free">Free</span>
+      <span class="pill" data-i18n="pill_opensource">Open source</span>
+    </div>
+
+    <div class="hero-badges">
+      <a href="https://github.com/codexquotamonitor/codex-quota-monitor/blob/main/LICENSE"
+         target="_blank" rel="noopener" aria-label="MIT License">
+        <img src="https://img.shields.io/badge/License-MIT-ff9800.svg"
+             alt="License: MIT" />
+      </a>
+    </div>
+  </section>
+</div>
+
+<!-- FEATURES -->
+<section class="features">
+  <h2 class="section-title" data-i18n="features_title">Everything you need, nothing you don't</h2>
+  <p class="section-sub" data-i18n="features_sub">Simple by design. Powerful where it matters.</p>
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </div>
+      <h3 data-i18n="feat1_title">Session usage (5h)</h3>
+      <p data-i18n="feat1_desc">See exactly how much of your 5-hour session window you've used, with a color-coded progress bar.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+      </div>
+      <h3 data-i18n="feat2_title">Weekly usage (7 days)</h3>
+      <p data-i18n="feat2_desc">Track your 7-day quota for all models plus Codex credits separately, each with its own reset timer.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"/>
+          <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+        </svg>
+      </div>
+      <h3 data-i18n="feat3_title">Auto background refresh</h3>
+      <p data-i18n="feat3_desc">Data updates automatically every 10 minutes and from your authenticated ChatGPT session. No open tab needed.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+        </svg>
+      </div>
+      <h3 data-i18n="feat4_title">Toolbar badge</h3>
+      <p data-i18n="feat4_desc">Your current usage percentage always visible on the extension icon. Turns orange at 70%, red at 90%.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <h3 data-i18n="feat5_title">10 languages</h3>
+      <p data-i18n="feat5_desc">Available in English, Portuguese, Spanish, French, Arabic, Bengali, Hindi, Indonesian, Russian, and Chinese.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <h3 data-i18n="feat6_title">Private & open source</h3>
+      <p data-i18n-html="feat6_desc_html">No account, no tracking, no data collection. Everything stays in your browser. <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);">Inspect the source code</a> and verify it yourself.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="nav-logo">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+      <rect width="32" height="32" rx="7" fill="#0a0a18"/>
+      <defs>
+        <linearGradient id="lg-ft" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ff9800"/>
+          <stop offset="100%" stop-color="#ffb74d"/>
+        </linearGradient>
+      </defs>
+      <circle cx="16" cy="16" r="10.5" stroke="#2e2a72" stroke-width="3.5" fill="none"
+              stroke-dasharray="52.5 13.6" stroke-linecap="round" transform="rotate(25 16 16)"/>
+      <circle cx="16" cy="16" r="10.5" stroke="url(#lg-ft)" stroke-width="3.5" fill="none"
+              stroke-dasharray="34.1 32" stroke-linecap="round" transform="rotate(25 16 16)"/>
+      <circle cx="16" cy="16" r="2" fill="#dcd8f5"/>
+    </svg>
+    <span style="font-size:14px; font-weight:600; color:#fff;">
+      Codex <em style="font-style:normal; background:linear-gradient(90deg,#ff9800,#ffb74d); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Quota</em> Monitor
+    </span>
+  </div>
+  <div class="footer-links">
+    <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" data-i18n="footer_github">GitHub</a>
+    <a href="https://codexquotamonitor.github.io/changelog.html">Changelog</a>
+    <a href="https://codexquotamonitor.github.io/privacy-policy.html" target="_blank" data-i18n="footer_privacy">Privacy Policy</a>
+  </div>
+  <p class="footer-copy" data-i18n="footer_copy">© 2026 The Codex Quota Monitor team · Not affiliated with OpenAI</p>
+  <p class="footer-copy" data-i18n-html="footer_email_html">Questions or feedback? <a href="mailto:codexquotamonitor@gmail.com" style="color:var(--muted); text-decoration:underline; text-underline-offset:3px;">codexquotamonitor@gmail.com</a></p>
+</footer>
+
+<script src="i18n.js?v=202605151200"></script>
+</body>
+</html>

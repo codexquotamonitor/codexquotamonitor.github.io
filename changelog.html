@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Changelog — Codex Quota Monitor</title>
+  <meta name="description" content="Full version history of Codex Quota Monitor — a free Chrome extension that shows your Codex quota usage in the browser toolbar." />
+  <link rel="canonical" href="https://codexquotamonitor.github.io/changelog.html" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://codexquotamonitor.github.io/changelog.html" />
+  <meta property="og:title" content="Changelog — Codex Quota Monitor" />
+  <meta property="og:description" content="All updates, improvements and fixes to Codex Quota Monitor." />
+  <meta property="og:site_name" content="Codex Quota Monitor" />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #07070f;
+      --surface:   #0f0f1a;
+      --border:    rgba(255,152,0,.16);
+      --purple:    #ff9800;
+      --purple2:   #ffb74d;
+      --text:      #e8e8f0;
+      --muted:     #6b6b8a;
+      --radius:    12px;
+      --green:     #34d399;
+      --blue:      #60a5fa;
+      --orange:    #fb923c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, #2b2113 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .glow-tl {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(167,139,250,.10) 0%, transparent 65%);
+      top: -250px; left: -200px;
+    }
+    .glow-br {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(192,88,246,.07) 0%, transparent 65%);
+      bottom: -200px; right: -100px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(7,7,15,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo span { font-size: 15px; font-weight: 700; color: #fff; }
+    .nav-logo span em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--purple), var(--purple2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn-install-sm {
+      background: linear-gradient(135deg, var(--purple), var(--purple2));
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity .2s;
+      white-space: nowrap;
+    }
+    .btn-install-sm:hover { opacity: .85; }
+
+    /* ── PAGE ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .page-header-left h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+    .page-header-left h1 span {
+      background: linear-gradient(90deg, var(--purple), var(--purple2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-header-left p { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+    #cqm-lang-switcher { flex-shrink: 0; }
+
+    /* ── LOADING / ERROR ── */
+    .cl-loading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      padding: 40px 0;
+    }
+
+    .cl-spinner {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(167,139,250,.2);
+      border-top-color: var(--purple);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .cl-error {
+      background: var(--surface);
+      border: 1px solid rgba(251,146,60,.2);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      color: #b0b0c8;
+      font-size: 14px;
+    }
+    .cl-error a { color: var(--purple); }
+
+    /* ── TIMELINE ── */
+    .timeline { display: flex; flex-direction: column; }
+
+    .version-card {
+      position: relative;
+      padding-left: 32px;
+      padding-bottom: 40px;
+    }
+
+    .version-card::before {
+      content: '';
+      position: absolute;
+      left: 9px; top: 10px; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(167,139,250,.3), transparent);
+    }
+    .version-card:last-child::before { display: none; }
+
+    .version-card::after {
+      content: '';
+      position: absolute;
+      left: 4px; top: 7px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--purple2));
+      box-shadow: 0 0 10px rgba(167,139,250,.5);
+    }
+
+    .version-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .version-badge { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
+
+    .version-date {
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 6px;
+      padding: 2px 8px;
+    }
+
+    .version-latest {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green);
+      background: rgba(52,211,153,.1);
+      border: 1px solid rgba(52,211,153,.25);
+      border-radius: 6px;
+      padding: 2px 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .version-body {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      transition: border-color .2s;
+    }
+    .version-body:hover { border-color: rgba(167,139,250,.3); }
+
+    .category { margin-bottom: 16px; }
+    .category:last-child { margin-bottom: 0; }
+
+    .category-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      border-radius: 5px;
+      padding: 2px 8px;
+      margin-bottom: 8px;
+    }
+
+    .cat-added        { color: var(--green);  background: rgba(52,211,153,.1);  border: 1px solid rgba(52,211,153,.2); }
+    .cat-improved     { color: var(--blue);   background: rgba(96,165,250,.1);  border: 1px solid rgba(96,165,250,.2); }
+    .cat-fixed        { color: var(--orange); background: rgba(251,146,60,.1);  border: 1px solid rgba(251,146,60,.2); }
+    .cat-localization { color: var(--purple); background: rgba(167,139,250,.1); border: 1px solid rgba(167,139,250,.2); }
+
+    .category ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+    .category ul li {
+      font-size: 13.5px;
+      color: #b0b0c8;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.55;
+    }
+    .category ul li::before { content: '›'; position: absolute; left: 0; color: var(--muted); font-weight: 700; }
+    .category ul li strong { color: #e0e0f0; font-weight: 600; }
+    .category ul li code {
+      font-size: 12px;
+      background: #1a1a2e;
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--purple);
+    }
+    .category ul li em { font-style: italic; color: #c4b5fd; }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--purple); }
+    .footer-copy { font-size: 12px; color: #333; }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .page { padding: 40px 16px 60px; }
+      footer { padding: 24px 20px; }
+      .page-header-left h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glow glow-tl"></div>
+  <div class="glow glow-br"></div>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" rx="7" fill="#0a0a18"/>
+        <defs>
+          <linearGradient id="lg-nav" x1="6" y1="6" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ff9800"/>
+            <stop offset="100%" stop-color="#ffb74d"/>
+          </linearGradient>
+        </defs>
+        <circle cx="16" cy="16" r="10.5" stroke="#2e2a72" stroke-width="3.5" fill="none"
+                stroke-dasharray="52.5 13.6" stroke-linecap="round" transform="rotate(25 16 16)"/>
+        <circle cx="16" cy="16" r="10.5" stroke="url(#lg-nav)" stroke-width="3.5" fill="none"
+                stroke-dasharray="34.1 32" stroke-linecap="round" transform="rotate(25 16 16)"/>
+        <circle cx="16" cy="16" r="2" fill="#dcd8f5"/>
+      </svg>
+      <span>Codex <em>Quota</em> Monitor</span>
+    </a>
+    <a href="https://github.com/codexquotamonitor/codex-quota-monitor"
+       target="_blank" rel="noopener" class="btn-install-sm" data-i18n="nav_install">
+      View on GitHub →
+    </a>
+  </nav>
+
+  <main class="page">
+
+    <div class="page-header">
+      <div class="page-header-left">
+        <h1 data-i18n-html="cl_title_html">Version <span>History</span></h1>
+        <p data-i18n="cl_subtitle">All updates, improvements and fixes to Codex Quota Monitor.</p>
+      </div>
+      <div id="cqm-lang-switcher"></div>
+    </div>
+
+    <div class="cl-loading" id="cl-loading">
+      <div class="cl-spinner"></div>
+      <span>Loading changelog…</span>
+    </div>
+
+    <div class="cl-error" id="cl-error" style="display:none">
+      Could not load the changelog. You can read it directly on
+      <a href="https://github.com/codexquotamonitor/codex-quota-monitor/blob/main/CHANGELOG.md"
+         target="_blank" rel="noopener">GitHub</a>.
+    </div>
+
+    <div class="timeline" id="cl-timeline" style="display:none"></div>
+
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/" data-i18n="footer_home">Home</a>
+      <a href="privacy-policy.html" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" rel="noopener" data-i18n="footer_github">GitHub</a>
+    </div>
+    <span class="footer-copy" data-i18n="footer_copy">© 2026 The Codex Quota Monitor team · Not affiliated with OpenAI</span>
+  </footer>
+
+<script src="i18n.js"></script>
+<script>
+  /* ── CONFIG ─────────────────────────────────────────────────── */
+  const CL_RAW_URL =
+    'https://raw.githubusercontent.com/codexquotamonitor/codex-quota-monitor/main/CHANGELOG.md';
+
+  const CL_CAT = {
+    'added':        { key: 'cl_added',        cls: 'cat-added',        fallback: '✦ Added' },
+    'improved':     { key: 'cl_improved',     cls: 'cat-improved',     fallback: '↑ Improved' },
+    'fixed':        { key: 'cl_fixed',        cls: 'cat-fixed',        fallback: '✗ Fixed' },
+    'localization': { key: 'cl_localization', cls: 'cat-localization', fallback: '◎ Localization' },
+  };
+
+  /* ── HELPERS ─────────────────────────────────────────────────── */
+  function clFormatDate(iso) {
+    const [y, m, d] = iso.split('-').map(Number);
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return `${months[m - 1]} ${d}, ${y}`;
+  }
+
+  function clInline(text) {
+    return text
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  }
+
+  /* ── PARSER ──────────────────────────────────────────────────── */
+  function clParse(md) {
+    const versions = [];
+    const blocks = md.split(/^## /m).filter(b => b.trimStart().startsWith('['));
+
+    for (const block of blocks) {
+      const lines = block.split('\n');
+      const m = lines[0].match(/^\[([^\]]+)\]\s*(?:—|-)\s*(\d{4}-\d{2}-\d{2})/);
+      if (!m) continue;
+
+      const version = m[1];
+      const date    = m[2];
+      const cats    = [];
+      let curName   = null;
+      let curItems  = [];
+
+      for (const line of lines.slice(1)) {
+        const catM = line.match(/^### (.+)/);
+        if (catM) {
+          if (curName) cats.push({ name: curName, items: curItems });
+          curName  = catM[1].trim().toLowerCase();
+          curItems = [];
+        } else if (line.startsWith('- ') && curName) {
+          curItems.push(line.slice(2).trim());
+        }
+      }
+      if (curName) cats.push({ name: curName, items: curItems });
+
+      versions.push({ version, date, cats });
+    }
+    return versions;
+  }
+
+  /* ── RENDERER ────────────────────────────────────────────────── */
+  function clBuildCard(v, isLatest) {
+    const catsHtml = v.cats.map(cat => {
+      const meta = CL_CAT[cat.name] || { key: '', cls: 'cat-added', fallback: cat.name };
+      const items = cat.items
+        .map(item => `<li>${clInline(item)}</li>`)
+        .join('');
+      const i18nAttr = meta.key ? ` data-i18n="${meta.key}"` : '';
+      return `
+        <div class="category">
+          <div class="category-label ${meta.cls}"${i18nAttr}>${meta.fallback}</div>
+          <ul>${items}</ul>
+        </div>`;
+    }).join('');
+
+    const latestBadge = isLatest
+      ? `<span class="version-latest" data-i18n="cl_latest">Latest</span>`
+      : '';
+
+    return `
+      <div class="version-card">
+        <div class="version-meta">
+          <span class="version-badge">v${v.version}</span>
+          <span class="version-date">${clFormatDate(v.date)}</span>
+          ${latestBadge}
+        </div>
+        <div class="version-body">${catsHtml}</div>
+      </div>`;
+  }
+
+  /* ── INIT ────────────────────────────────────────────────────── */
+  async function clInit() {
+    const loading  = document.getElementById('cl-loading');
+    const error    = document.getElementById('cl-error');
+    const timeline = document.getElementById('cl-timeline');
+
+    try {
+      const res = await fetch(CL_RAW_URL);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const md       = await res.text();
+      const versions = clParse(md);
+      if (!versions.length) throw new Error('empty');
+
+      timeline.innerHTML = versions
+        .map((v, i) => clBuildCard(v, i === 0))
+        .join('');
+
+      loading.style.display  = 'none';
+      timeline.style.display = 'flex';
+
+      // Re-apply translations to newly injected [data-i18n] elements
+      const lang = localStorage.getItem('cqm_lang') || cqmDetectLang();
+      cqmApplyLang(lang);
+
+    } catch (_) {
+      loading.style.display = 'none';
+      error.style.display   = 'block';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', clInit);
+</script>
+</body>
+</html>
