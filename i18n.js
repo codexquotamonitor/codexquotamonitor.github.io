@@ -17,12 +17,12 @@ const CQM_T = {
 
   /* ── ENGLISH ──────────────────────────────────────────────── */
   en: {
-    nav_install: 'GitHub →',
+    nav_install: 'Install →',
     hero_badge: 'Free Chrome Extension',
     hero_title_html: 'Know your <em>Codex quota</em><br/>before it runs out',
     hero_desc_html: 'Track your Codex session and weekly usage directly in the browser toolbar — no setup, no distractions. Free and <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">open source</a>.',
-    version_notice: 'Changelog',
-    cta_install: 'GitHub',
+    version_notice: 'Available on Chrome Web Store',
+    cta_install: 'Add to Chrome',
     cta_source: 'View source',
     pill_session: 'Session usage', pill_weekly: 'Weekly usage', pill_design: 'Codex credits',
     pill_refresh: 'Auto refresh', pill_langs: '10 languages', pill_free: 'Free', pill_opensource: 'Open source',
@@ -48,6 +48,7 @@ const CQM_T = {
     preview_slide2_desc: 'The same quota details with a clean light interface.',
     preview_slide1_desc: 'Current session, weekly limits, credits, and reset timers in one compact popup.',
 
+    footer_store: 'Chrome Web Store',
     footer_github: 'GitHub',
     footer_privacy: 'Privacy Policy',
     footer_copy: '© 2026 The Codex Quota Monitor team · Not affiliated with OpenAI',
@@ -80,12 +81,12 @@ const CQM_T = {
 
   /* ── PORTUGUÊS (BR) ───────────────────────────────────────── */
   pt_BR: {
-    nav_install: 'GitHub →',
+    nav_install: 'Instalar →',
     hero_badge: 'Extensão gratuita para Chrome',
     hero_title_html: 'Saiba sua <em>cota do Codex</em><br/>antes que acabe',
     hero_desc_html: 'Acompanhe o uso da sua sessão e cota semanal do Codex diretamente na barra do navegador — sem configuração, sem distrações. Gratuito e <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">código aberto</a>.',
-    version_notice: 'Changelog',
-    cta_install: 'GitHub',
+    version_notice: 'Disponível na Chrome Web Store',
+    cta_install: 'Adicionar ao Chrome',
     cta_source: 'Ver código-fonte',
     pill_session: 'Uso da sessão', pill_weekly: 'Uso semanal', pill_design: 'Codex credits',
     pill_refresh: 'Atualização automática', pill_langs: '10 idiomas', pill_free: 'Grátis', pill_opensource: 'Código aberto',
@@ -111,6 +112,7 @@ const CQM_T = {
     preview_slide2_desc: 'Os mesmos detalhes de cota em uma interface clara e limpa.',
     preview_slide1_desc: 'Sessão atual, limites semanais, créditos e horários de redefinição em um popup compacto.',
 
+    footer_store: 'Chrome Web Store',
     footer_github: 'GitHub',
     footer_privacy: 'Política de Privacidade',
     footer_copy: '© 2026 The Codex Quota Monitor team · Não afiliado à OpenAI',
@@ -143,12 +145,12 @@ const CQM_T = {
 
   /* ── ESPAÑOL ──────────────────────────────────────────────── */
   es: {
-    nav_install: 'GitHub →',
+    nav_install: 'Instalar →',
     hero_badge: 'Extensión gratuita para Chrome',
     hero_title_html: 'Conoce tu <em>cuota de Codex</em><br/>antes de que se acabe',
     hero_desc_html: 'Sigue el uso de tu sesión y cuota semanal de Codex directamente en la barra del navegador — sin configuración, sin distracciones. Gratis y <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">código abierto</a>.',
-    version_notice: 'Changelog',
-    cta_install: 'GitHub',
+    version_notice: 'Disponible en Chrome Web Store',
+    cta_install: 'Añadir a Chrome',
     cta_source: 'Ver código fuente',
     pill_session: 'Uso de sesión', pill_weekly: 'Uso semanal', pill_design: 'Codex credits',
     pill_refresh: 'Actualización automática', pill_langs: '10 idiomas', pill_free: 'Gratis', pill_opensource: 'Código abierto',
@@ -174,6 +176,7 @@ const CQM_T = {
     preview_slide2_desc: 'Los mismos detalles de cuota con una interfaz clara y limpia.',
     preview_slide1_desc: 'Sesión actual, límites semanales, créditos y temporizadores de restablecimiento en un popup compacto.',
 
+    footer_store: 'Chrome Web Store',
     footer_github: 'GitHub',
     footer_privacy: 'Política de Privacidad',
     footer_copy: '© 2026 The Codex Quota Monitor team · No afiliado a OpenAI',
@@ -206,12 +209,12 @@ const CQM_T = {
 
   /* ── FRANÇAIS ─────────────────────────────────────────────── */
   fr: {
-    nav_install: 'GitHub →',
+    nav_install: 'Installer →',
     hero_badge: 'Extension Chrome gratuite',
     hero_title_html: 'Suivez votre <em>quota Codex</em><br/>avant qu\'il s\'épuise',
     hero_desc_html: 'Suivez l\'utilisation de votre session et quota hebdomadaire Codex directement dans la barre d\'outils — sans configuration, sans distraction. Gratuit et <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">open source</a>.',
-    version_notice: 'Changelog',
-    cta_install: 'GitHub',
+    version_notice: 'Disponible sur le Chrome Web Store',
+    cta_install: 'Ajouter à Chrome',
     cta_source: 'Voir le code source',
     pill_session: 'Usage de session', pill_weekly: 'Usage hebdomadaire', pill_design: 'Codex credits',
     pill_refresh: 'Actualisation auto', pill_langs: '10 langues', pill_free: 'Gratuit', pill_opensource: 'Open source',
@@ -236,6 +239,7 @@ const CQM_T = {
     preview_slide_placeholder: 'Aperçu de capture',
     preview_slide2_desc: 'Les mêmes détails de quota avec une interface claire et épurée.',
     preview_slide1_desc: 'Session en cours, limites hebdomadaires, crédits et horaires de réinitialisation dans un popup compact.',
+    footer_store: 'Chrome Web Store',
     footer_github: 'GitHub',
     footer_privacy: 'Politique de Confidentialité',
     footer_copy: '© 2026 The Codex Quota Monitor team · Non affilié à OpenAI',
@@ -268,12 +272,12 @@ const CQM_T = {
 
   /* ── ARABIC ───────────────────────────────────────────────── */
   ar: {
-    nav_install: 'GitHub →',
+    nav_install: 'تثبيت ←',
     hero_badge: 'إضافة Chrome مجانية',
     hero_title_html: 'اعرف <em>حصتك في Codex</em><br/>قبل أن تنفد',
     hero_desc_html: 'تتبع استخدام جلستك والحصة الأسبوعية في Codex مباشرةً من شريط أدوات المتصفح — بدون إعداد، بدون إلهاء. مجاني و<a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">مفتوح المصدر</a>.',
-    version_notice: 'Changelog',
-    cta_install: 'GitHub',
+    version_notice: 'متاح على Chrome Web Store',
+    cta_install: 'إضافة إلى Chrome',
     cta_source: 'عرض الكود المصدري',
     pill_session: 'استخدام الجلسة', pill_weekly: 'الاستخدام الأسبوعي', pill_design: 'Codex credits',
     pill_refresh: 'تحديث تلقائي', pill_langs: '10 لغات', pill_free: 'مجاني', pill_opensource: 'مفتوح المصدر',
@@ -299,6 +303,7 @@ const CQM_T = {
     preview_slide2_desc: 'تفاصيل الحصة نفسها بواجهة فاتحة ونظيفة.',
     preview_slide1_desc: 'الجلسة الحالية والحدود الأسبوعية والأرصدة ومؤقتات إعادة التعيين في نافذة مدمجة.',
 
+    footer_store: 'Chrome Web Store',
     footer_github: 'GitHub',
     footer_privacy: 'سياسة الخصوصية',
     footer_copy: '© 2026 فريق Codex Quota Monitor · غير تابع لـ OpenAI',
@@ -331,12 +336,12 @@ const CQM_T = {
 
   /* ── BENGALI ──────────────────────────────────────────────── */
   bn: {
-    nav_install: 'GitHub →',
+    nav_install: 'ইনস্টল করুন →',
     hero_badge: 'বিনামূল্যে Chrome এক্সটেনশন',
     hero_title_html: 'আপনার <em>Codex কোটা</em> জানুন<br/>শেষ হওয়ার আগেই',
     hero_desc_html: 'ব্রাউজার টুলবারে সরাসরি Codex সেশন ও সাপ্তাহিক ব্যবহার ট্র্যাক করুন — কোনো সেটআপ নেই, কোনো বিভ্রান্তি নেই। বিনামূল্যে এবং <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">ওপেন সোর্স</a>।',
-    version_notice: 'Changelog',
-    cta_install: 'GitHub',
+    version_notice: 'Chrome Web Store-এ উপলব্ধ',
+    cta_install: 'Chrome-এ যোগ করুন',
     cta_source: 'সোর্স কোড দেখুন',
     pill_session: 'সেশন ব্যবহার', pill_weekly: 'সাপ্তাহিক ব্যবহার', pill_design: 'Codex credits',
     pill_refresh: 'স্বয়ংক্রিয় রিফ্রেশ', pill_langs: '১০টি ভাষা', pill_free: 'বিনামূল্যে', pill_opensource: 'ওপেন সোর্স',
@@ -362,6 +367,7 @@ const CQM_T = {
     preview_slide2_desc: 'একই কোটা বিবরণ একটি পরিষ্কার লাইট ইন্টারফেসে।',
     preview_slide1_desc: 'বর্তমান সেশন, সাপ্তাহিক সীমা, ক্রেডিট এবং রিসেট টাইমার একটি কমপ্যাক্ট পপআপে।',
 
+    footer_store: 'Chrome Web Store',
     footer_github: 'GitHub',
     footer_privacy: 'গোপনীয়তা নীতি',
     footer_copy: '© ২০২৬ The Codex Quota Monitor team · OpenAI-এর সাথে অসংযুক্ত',
@@ -394,12 +400,12 @@ const CQM_T = {
 
   /* ── HINDI ────────────────────────────────────────────────── */
   hi: {
-    nav_install: 'GitHub →',
+    nav_install: 'इंस्टॉल करें →',
     hero_badge: 'मुफ़्त Chrome एक्सटेंशन',
     hero_title_html: 'अपना <em>Codex कोटा</em> जानें<br/>खत्म होने से पहले',
     hero_desc_html: 'ब्राउज़र टूलबार में सीधे Codex सेशन और साप्ताहिक उपयोग ट्रैक करें — कोई सेटअप नहीं, कोई विकर्षण नहीं। मुफ़्त और <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">ओपन सोर्स</a>।',
-    version_notice: 'Changelog',
-    cta_install: 'GitHub',
+    version_notice: 'Chrome Web Store पर उपलब्ध',
+    cta_install: 'Chrome में जोड़ें',
     cta_source: 'सोर्स कोड देखें',
     pill_session: 'सेशन उपयोग', pill_weekly: 'साप्ताहिक उपयोग', pill_design: 'Codex credits',
     pill_refresh: 'स्वचालित रिफ्रेश', pill_langs: '10 भाषाएँ', pill_free: 'मुफ़्त', pill_opensource: 'ओपन सोर्स',
@@ -425,6 +431,7 @@ const CQM_T = {
     preview_slide2_desc: 'वही कोटा विवरण एक साफ लाइट इंटरफ़ेस में।',
     preview_slide1_desc: 'वर्तमान सत्र, साप्ताहिक सीमाएँ, क्रेडिट और रीसेट टाइमर एक कॉम्पैक्ट पॉपअप में।',
 
+    footer_store: 'Chrome Web Store',
     footer_github: 'GitHub',
     footer_privacy: 'गोपनीयता नीति',
     footer_copy: '© 2026 The Codex Quota Monitor team · OpenAI से असंबद्ध',
@@ -457,12 +464,12 @@ const CQM_T = {
 
   /* ── BAHASA INDONESIA ─────────────────────────────────────── */
   id: {
-    nav_install: 'GitHub →',
+    nav_install: 'Pasang →',
     hero_badge: 'Ekstensi Chrome Gratis',
     hero_title_html: 'Ketahui <em>kuota Codex</em>-mu<br/>sebelum habis',
     hero_desc_html: 'Pantau penggunaan sesi dan kuota mingguan Codex langsung di toolbar browser — tanpa pengaturan, tanpa gangguan. Gratis dan <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">open source</a>.',
-    version_notice: 'Changelog',
-    cta_install: 'GitHub',
+    version_notice: 'Tersedia di Chrome Web Store',
+    cta_install: 'Tambahkan ke Chrome',
     cta_source: 'Lihat kode sumber',
     pill_session: 'Penggunaan sesi', pill_weekly: 'Penggunaan mingguan', pill_design: 'Codex credits',
     pill_refresh: 'Pembaruan otomatis', pill_langs: '10 bahasa', pill_free: 'Gratis', pill_opensource: 'Open source',
@@ -488,6 +495,7 @@ const CQM_T = {
     preview_slide2_desc: 'Detail kuota yang sama dengan antarmuka terang yang bersih.',
     preview_slide1_desc: 'Sesi saat ini, batas mingguan, kredit, dan waktu reset dalam satu popup ringkas.',
 
+    footer_store: 'Chrome Web Store',
     footer_github: 'GitHub',
     footer_privacy: 'Kebijakan Privasi',
     footer_copy: '© 2026 The Codex Quota Monitor team · Tidak berafiliasi dengan OpenAI',
@@ -520,12 +528,12 @@ const CQM_T = {
 
   /* ── RUSSIAN ──────────────────────────────────────────────── */
   ru: {
-    nav_install: 'GitHub →',
+    nav_install: 'Установить →',
     hero_badge: 'Бесплатное расширение Chrome',
     hero_title_html: 'Следите за <em>квотой Codex</em><br/>до того, как она закончится',
     hero_desc_html: 'Отслеживайте использование сессии и недельной квоты Codex прямо на панели инструментов браузера — без настройки, без отвлечений. Бесплатно и <a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">с открытым исходным кодом</a>.',
-    version_notice: 'Changelog',
-    cta_install: 'GitHub',
+    version_notice: 'Доступно в Chrome Web Store',
+    cta_install: 'Добавить в Chrome',
     cta_source: 'Исходный код',
     pill_session: 'Использование сессии', pill_weekly: 'Недельное использование', pill_design: 'Codex credits',
     pill_refresh: 'Автообновление', pill_langs: '10 языков', pill_free: 'Бесплатно', pill_opensource: 'Открытый код',
@@ -551,6 +559,7 @@ const CQM_T = {
     preview_slide2_desc: 'Те же сведения о квоте в чистом светлом интерфейсе.',
     preview_slide1_desc: 'Текущая сессия, недельные лимиты, кредиты и таймеры сброса в компактном окне.',
 
+    footer_store: 'Chrome Web Store',
     footer_github: 'GitHub',
     footer_privacy: 'Политика конфиденциальности',
     footer_copy: '© 2026 The Codex Quota Monitor team · Не аффилирован с OpenAI',
@@ -583,12 +592,12 @@ const CQM_T = {
 
   /* ── CHINESE SIMPLIFIED ───────────────────────────────────── */
   zh_CN: {
-    nav_install: 'GitHub →',
+    nav_install: '安装 →',
     hero_badge: '免费 Chrome 扩展',
     hero_title_html: '随时掌握您的 <em>Codex 配额</em><br/>不再措手不及',
     hero_desc_html: '直接在浏览器工具栏中跟踪您的 Codex 会话和每周使用情况 — 无需设置，无干扰。免费且<a href="https://github.com/codexquotamonitor/codex-quota-monitor" target="_blank" style="color:var(--purple);text-decoration:underline;text-underline-offset:3px;">开源</a>。',
-    version_notice: 'Changelog',
-    cta_install: 'GitHub',
+    version_notice: '已在 Chrome 网上应用店上线',
+    cta_install: '添加到 Chrome',
     cta_source: '查看源代码',
     pill_session: '会话用量', pill_weekly: '每周用量', pill_design: 'Codex credits',
     pill_refresh: '自动刷新', pill_langs: '10种语言', pill_free: '免费', pill_opensource: '开源',
@@ -614,6 +623,7 @@ const CQM_T = {
     preview_slide2_desc: '以清爽的浅色界面展示同样的配额详情。',
     preview_slide1_desc: '在一个紧凑弹出窗口中查看当前会话、每周限制、积分和重置时间。',
 
+    footer_store: 'Chrome 网上应用店',
     footer_github: 'GitHub',
     footer_privacy: '隐私政策',
     footer_copy: '© 2026 Codex Quota Monitor 团队 · 与 OpenAI 无关联',
@@ -770,4 +780,3 @@ document.addEventListener('DOMContentLoaded', () => {
   cqmBuildSwitcher('cqm-lang-switcher');
   cqmApplyLang(lang);
 });
-
