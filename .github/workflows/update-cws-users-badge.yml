@@ -1,0 +1,35 @@
+name: Update Chrome Web Store users badge
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 8 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update-badge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Update badge JSON
+        run: node scripts/update-cws-users-badge.js
+
+      - name: Commit updated badge
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update Chrome Web Store users badge
+          file_pattern: badges/cws-users.json
